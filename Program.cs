@@ -14,7 +14,8 @@ while(chosenOption != MenuOption.Exit)
     Console.WriteLine("Menu:");
     Console.WriteLine("1. Add new expense");
     Console.WriteLine("2. View expenses");
-    Console.WriteLine("3. Exit");
+    Console.WriteLine("3. Total");
+    Console.WriteLine("4. Exit");
     
     input = Console.ReadLine();
     if(!Enum.TryParse(input, out chosenOption))
@@ -31,7 +32,12 @@ while(chosenOption != MenuOption.Exit)
             expenses.AddExpense(newExpense);
             break;
         case MenuOption.View:
-        
+            string overview = expenses.GetNiceView();
+            Console.WriteLine("Here is your overview:");
+            Console.WriteLine(overview);
+            break;
+        case MenuOption.Total:
+            Console.WriteLine($"Here is your total spending: ${expenses.GetExpenseTotal()}");
             break;
         default:
             break;
