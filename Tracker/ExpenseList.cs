@@ -14,4 +14,15 @@ public class ExpenseList
     {
         Expenses.Add(newExpense);
     }
+
+    public int GetExpenseTotal()
+    {
+        int total = 0;
+        foreach(Expense expense in Expenses)
+        {
+            total += expense.Amount;
+        }
+
+        return total;
+    }
 }
