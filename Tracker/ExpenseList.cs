@@ -9,4 +9,9 @@ public class ExpenseList
         Expense newExpense = new Expense(amount, description);
         Expenses.Add(newExpense);
     }
+
+    public void AddExpense(Expense newExpense)
+    {
+        Expenses.Add(newExpense);
+    }
 }
