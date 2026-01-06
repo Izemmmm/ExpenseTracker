@@ -17,14 +17,14 @@ public class ExpenseList
 
     public string GetNiceView()
     {
-        string niceView = "----------------------------------------";
+        string niceView = "----------------------------------------\n";
         foreach(Expense expense in Expenses)
         {
             niceView += $"Amount: ${expense.Amount}\n";
             niceView += $"Description: ${expense.Description}\n";
             niceView += $"Date: ${expense.Date}\n\n";
         }
-        niceView += "----------------------------------------";
+        niceView += "----------------------------------------\n";
 
         return niceView;
     }
