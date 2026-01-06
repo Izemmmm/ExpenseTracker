@@ -15,6 +15,20 @@ public class ExpenseList
         Expenses.Add(newExpense);
     }
 
+    public string GetNiceView()
+    {
+        string niceView = "----------------------------------------";
+        foreach(Expense expense in Expenses)
+        {
+            niceView += $"Amount: ${expense.Amount}\n";
+            niceView += $"Description: ${expense.Description}\n";
+            niceView += $"Date: ${expense.Date}\n\n";
+        }
+        niceView += "----------------------------------------";
+
+        return niceView;
+    }
+
     public int GetExpenseTotal()
     {
         int total = 0;
