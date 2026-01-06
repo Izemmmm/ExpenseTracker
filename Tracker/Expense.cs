@@ -1,4 +1,4 @@
-﻿namespace ExpenseTracker;
+﻿namespace ExpenseTracker.Tracker;
 
 public class Expense
 {
