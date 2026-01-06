@@ -1,4 +1,7 @@
 ﻿using ExpenseTracker.Enums;
+using ExpenseTracker.Tracker;
+
+ExpenseList expenses = new ExpenseList();
 
 MenuOption chosenOption = MenuOption.Default;
 string? input = "";
@@ -22,7 +25,8 @@ while(chosenOption != MenuOption.Exit)
     switch (chosenOption)
     {
         case MenuOption.Add:
-
+            Expense newExpense = GetExpense();
+            expenses.AddExpense(newExpense);
             break;
         case MenuOption.View:
         
@@ -30,4 +34,24 @@ while(chosenOption != MenuOption.Exit)
         default:
             break;
     }
+}
+
+Expense GetExpense()
+{
+    int amount;
+    string description = "";
+
+    string? input = Console.ReadLine();
+    Console.WriteLine("Please enter amount of your expense.");
+    while (!int.TryParse(input, out amount))
+    {
+        Console.WriteLine("Incorrect value, try again!");
+        input = Console.ReadLine();
+    }
+    
+    Console.WriteLine("Please enter description for your expense.");
+    input = Console.ReadLine();
+    description = input is null ? "" : input;
+
+    return new Expense(amount, description);
 }
