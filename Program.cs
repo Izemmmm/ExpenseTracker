@@ -6,14 +6,16 @@ ExpenseList expenses = new ExpenseList();
 MenuOption chosenOption = MenuOption.Default;
 string? input = "";
 
-Console.WriteLine("Welcome to Expense tracker!");
-Console.WriteLine("Menu:");
-Console.WriteLine("1. Add new expense");
-Console.WriteLine("2. View expenses");
-Console.WriteLine("3. Exit");
+
 
 while(chosenOption != MenuOption.Exit)
 {
+    Console.WriteLine("Welcome to Expense tracker!");
+    Console.WriteLine("Menu:");
+    Console.WriteLine("1. Add new expense");
+    Console.WriteLine("2. View expenses");
+    Console.WriteLine("3. Exit");
+    
     input = Console.ReadLine();
     if(!Enum.TryParse(input, out chosenOption))
     {
@@ -41,8 +43,8 @@ Expense GetExpense()
     int amount;
     string description = "";
 
-    string? input = Console.ReadLine();
     Console.WriteLine("Please enter amount of your expense.");
+    string? input = Console.ReadLine();
     while (!int.TryParse(input, out amount))
     {
         Console.WriteLine("Incorrect value, try again!");
