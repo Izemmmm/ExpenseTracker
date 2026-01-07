@@ -15,18 +15,29 @@ public class ExpenseList
         Expenses.Add(newExpense);
     }
 
-    public string GetNiceView()
+    public bool DeleteExpense(int number)
     {
-        string niceView = "----------------------------------------\n";
-        foreach(Expense expense in Expenses)
+        int index = number - 1;
+        if (index < 0 || index >= Expenses.Count)
         {
-            niceView += $"Amount: ${expense.Amount}\n";
-            niceView += $"Description: ${expense.Description}\n";
-            niceView += $"Date: ${expense.Date}\n\n";
+            return false;
         }
-        niceView += "----------------------------------------\n";
 
-        return niceView;
+        Expenses.RemoveAt(index);
+        return true;
+    }
+
+    public override string ToString()
+    {
+        string niceList = "----------------------------------------";
+        for (int i = 0; i < Expenses.Count; ++i)
+        {
+            niceList += $"\n{i + 1}#\n";
+            niceList += Expenses[i].ToString(); 
+        }
+        niceList += "----------------------------------------\n";
+
+        return niceList;
     }
 
     public int GetExpenseTotal()
