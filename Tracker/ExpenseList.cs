@@ -17,17 +17,15 @@ public class ExpenseList
 
     public override string ToString()
     {
-        string niceView = "----------------------------------------";
+        string niceList = "----------------------------------------";
         for(int i = 0; i < Expenses.Count; ++i)
         {
-            niceView += $"\n{i}#\n";
-            niceView += $"Amount: ${Expenses[i].Amount}\n";
-            niceView += $"Description: ${Expenses[i].Description}\n";
-            niceView += $"Date: ${Expenses[i].Date}\n";
+            niceList += $"\n{i + 1}#\n";
+            niceList += Expenses[i].ToString(); 
         }
-        niceView += "----------------------------------------\n";
+        niceList += "----------------------------------------\n";
 
-        return niceView;
+        return niceList;
     }
 
     public int GetExpenseTotal()
