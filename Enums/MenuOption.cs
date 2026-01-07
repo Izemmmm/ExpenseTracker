@@ -6,5 +6,6 @@ public enum MenuOption
     Add,
     View,
     Total,
+    Delete,
     Exit
 }

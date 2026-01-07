@@ -15,7 +15,8 @@ while(chosenOption != MenuOption.Exit)
     Console.WriteLine("1. Add new expense");
     Console.WriteLine("2. View expenses");
     Console.WriteLine("3. Total");
-    Console.WriteLine("4. Exit");
+    Console.WriteLine("4. Delete expense");
+    Console.WriteLine("5. Exit");
     
     input = Console.ReadLine();
     if(!Enum.TryParse(input, out chosenOption))
@@ -39,8 +40,42 @@ while(chosenOption != MenuOption.Exit)
         case MenuOption.Total:
             Console.WriteLine($"Here is your total spending: ${expenses.GetExpenseTotal()}");
             break;
+        case MenuOption.Delete:
+            ChooseDeleteExpense();
+            break;
         default:
             break;
+    }
+}
+
+void ChooseDeleteExpense()
+{
+    int expenseNumber;
+
+    Console.WriteLine("Please enter the number of expxense you want to delete. Or 0 to quit.");
+    while (true)
+    {
+        string? input = Console.ReadLine();
+        while (!int.TryParse(input, out expenseNumber))
+        {
+            Console.WriteLine("Incorrect value, try again!");
+            input = Console.ReadLine();
+        }
+
+        if (expenseNumber == 0)
+        {
+            return;
+        }
+
+        if (expenses.DeleteExpense(expenseNumber))
+        {
+            Console.WriteLine($"The expense number #{expenseNumber} was deleted succesfully.");
+            return;
+        }
+        else
+        {
+            Console.WriteLine($"The expense number #{expenseNumber} does not exist, please try again.");
+        }
     }
 }
 
