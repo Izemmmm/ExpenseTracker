@@ -15,10 +15,22 @@ public class ExpenseList
         Expenses.Add(newExpense);
     }
 
+    public bool DeleteExpense(int number)
+    {
+        int index = number - 1;
+        if (index < 0 || index >= Expenses.Count)
+        {
+            return false;
+        }
+
+        Expenses.RemoveAt(index);
+        return true;
+    }
+
     public override string ToString()
     {
         string niceList = "----------------------------------------";
-        for(int i = 0; i < Expenses.Count; ++i)
+        for (int i = 0; i < Expenses.Count; ++i)
         {
             niceList += $"\n{i + 1}#\n";
             niceList += Expenses[i].ToString(); 
