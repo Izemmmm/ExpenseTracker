@@ -16,4 +16,14 @@ public class Expense
     {
         Date = date;
     }
+
+    public override string ToString()
+    {
+        string expense = "";
+        expense += $"Amount: ${Amount}\n";
+        expense += $"Description: ${Description}\n";
+        expense += $"Date: ${Date}\n";
+
+        return expense;
+    }
 }
