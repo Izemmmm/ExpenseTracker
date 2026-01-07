@@ -15,14 +15,15 @@ public class ExpenseList
         Expenses.Add(newExpense);
     }
 
-    public string GetNiceView()
+    public override string ToString()
     {
-        string niceView = "----------------------------------------\n";
-        foreach(Expense expense in Expenses)
+        string niceView = "----------------------------------------";
+        for(int i = 0; i < Expenses.Count; ++i)
         {
-            niceView += $"Amount: ${expense.Amount}\n";
-            niceView += $"Description: ${expense.Description}\n";
-            niceView += $"Date: ${expense.Date}\n\n";
+            niceView += $"\n{i}#\n";
+            niceView += $"Amount: ${Expenses[i].Amount}\n";
+            niceView += $"Description: ${Expenses[i].Description}\n";
+            niceView += $"Date: ${Expenses[i].Date}\n";
         }
         niceView += "----------------------------------------\n";
 
