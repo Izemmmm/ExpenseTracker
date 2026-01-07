@@ -33,7 +33,7 @@ while(chosenOption != MenuOption.Exit)
             expenses.AddExpense(newExpense);
             break;
         case MenuOption.View:
-            string overview = expenses.GetNiceView();
+            string overview = expenses.ToString();
             Console.WriteLine("Here is your overview:");
             Console.WriteLine(overview);
             break;
